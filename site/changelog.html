@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog | Logilator</title>
+<meta name="description" content="What changed in each version of Logilator.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Logilator">
+<meta property="og:title" content="Changelog | Logilator">
+<meta property="og:description" content="What changed in each version of Logilator.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" id="glow"></div>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b><span class="ver" data-version>v15.5</span></a>
+    <nav class="main" id="mainNav" aria-label="Main"><a href="index.html#calculator">Calculator</a><a href="index.html#journal">Journal</a><a href="index.html#logic-ai">Logic AI</a><a href="index.html#safeguards">Safeguards</a><a href="setup.html">Setup guide</a><a href="index.html#get">Pricing</a><a href="index.html#faq">FAQ</a></nav>
+    <div class="right">
+      <a class="btn solid" data-buy href="buy.html">Get Logilator</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="pagehead"><div class="wrap"><span class="label">Resources</span><h1>Changelog</h1><p>What changed in each version of Logilator. The newest version is at the top.</p></div></div>
+<div class="wrap" style="padding-top:20px"><div class="trow latest"><div><div class="v">v15.5 <span class="pill">Latest</span></div><div class="d">Nov 2026</div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Settings panel</b> from the gear at the top left: accent colour and profit/loss colours (presets and your own colour pickers), including a colour-blind friendly blue and orange option.</span></li><li><span class="tg new">New</span><span>Interface size (compact, default, large), and switches for the cursor glow, the bouncing dollar sign and animations.</span></li><li><span class="tg new">New</span><span>Breakeven threshold and keyboard shortcuts can be changed in Settings.</span></li><li><span class="tg improved">Improved</span><span>The Trade History and Journal buttons are gone from the calculator page. Both open from the tabs at the top.</span></li></ul></div><div class="trow"><div><div class="v">v15.4 </div><div class="d">Nov 2026</div></div><ul class="cl"><li><span class="tg improved">Improved</span><span><b>Breakeven</b> now means a trade that closed within 0.1% of your account balance. Profits and losses outside that range are never marked breakeven.</span></li><li><span class="tg new">New</span><span>Any trade can be marked or unmarked as breakeven by hand with a small button, in case it was classed wrongly.</span></li></ul></div><div class="trow"><div><div class="v">v15.3 </div><div class="d">Nov 2026</div></div><ul class="cl"><li><span class="tg improved">Improved</span><span>Journal opens from its own tab. The calculator page is simpler.</span></li><li><span class="tg fixed">Fixed</span><span>On phones the journal statistics no longer push the trade list off the screen, and the trade details open as a panel.</span></li></ul></div><div class="trow"><div><div class="v">v15.2 </div><div class="d">Nov 2026</div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Colour in the journal:</b> green for profit, red for loss, grey for breakeven.</span></li><li><span class="tg new">New</span><span>Every trade is kept permanently. Nothing is dropped after 7 days, and recent history is imported from Bybit the first time.</span></li><li><span class="tg improved">Improved</span><span>Dark scrollbars that match the theme (they were bright white before).</span></li><li><span class="tg fixed">Fixed</span><span>Profit and loss amounts briefly lost their colours after the stats redesign.</span></li></ul></div><div class="trow"><div><div class="v">v15.1 </div><div class="d">Nov 2026</div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Journal statistics:</b> win rate, breakeven rate and loss rate, average leverage, average risk per trade, average reward-to-risk, average gain, and total fees.</span></li><li><span class="tg improved">Improved</span><span>A cleaner journal layout with one summary panel and a row of stat cards.</span></li><li><span class="tg fixed">Fixed</span><span>Pressing Tab in the Logic AI box now moves on to the Journal instead of back to the calculator. Tab cycles Calculator, Logic AI, Journal.</span></li></ul></div><div class="trow"><div><div class="v">v15.0 </div><div class="d">Nov 2026</div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Trade journal.</b> Every trade is recorded when it closes, matched with the plan you reviewed: planned entry, exit, size and risk next to what actually happened.</span></li><li><span class="tg new">New</span><span>Notes, tags and a star rating for each trade, search and filters, and CSV export.</span></li><li><span class="tg new">New</span><span>Delete single or multiple trades, or clear the whole trade history, with a confirmation step.</span></li></ul></div><div class="trow"><div><div class="v">v14.0 </div><div class="d"></div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Chart screenshot reading</b> in Logic AI. Paste, drop or attach a screenshot of your long/short tool and it reads the entry, stop loss and take profit from the price axis, then shows a card to check. Nothing changes until you press Apply, and a screenshot never starts an order.</span></li></ul></div><div class="trow"><div><div class="v">v13.0 </div><div class="d"></div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Keyboard shortcuts:</b> &ldquo;/&rdquo; jumps to the chat box and Tab switches views.</span></li></ul></div><div class="trow"><div><div class="v">v12.0 </div><div class="d"></div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Logic AI</b> became a full chat page with its own tab: saved chats, a model picker that browses the OpenRouter catalogue (free and paid, with context size and prices), live streaming answers, and a stop button.</span></li><li><span class="tg new">New</span><span>Every answer shows which model replied, how long it took and the tokens used. &ldquo;Thought for&rdquo; opens the reasoning where the model provides it.</span></li><li><span class="tg new">New</span><span>Ask it to place a long or short and it fills the calculator and opens the normal order review. Nothing is sent until you confirm.</span></li><li><span class="tg improved">Improved</span><span>The floating chat button was replaced by the top tabs, Calculator and Logic AI.</span></li></ul></div><div class="trow"><div><div class="v">v11.0 </div><div class="d"></div></div><ul class="cl"><li><span class="tg new">New</span><span><b>Assistant chat</b> powered by your own OpenRouter key. It answers questions about your numbers and changes the calculator fields on command, each with an Undo link. It never sees your Bybit keys.</span></li></ul></div><div class="trow"><div><div class="v">Before 11.0 </div><div class="d"></div></div><ul class="cl"><li><span class="tg new">New</span><span><b>The calculator:</b> position size, notional, minimum leverage, reward-to-risk, liquidation check, and net profit and loss after fees.</span></li><li><span class="tg new">New</span><span><b>Order placement</b> to Bybit from your own PC, with a review window before every order. Cancel and edit orders, live positions with partial closes, and a basic trade history.</span></li><li><span class="tg new">New</span><span><b>Safety checks</b> on every order: isolated margin, one-way mode, stop loss versus liquidation, maximum risk per trade and an optional daily loss limit.</span></li></ul></div></div><div style="height:120px"></div>
+</main>
+<footer class="big">
+  <div class="wrap">
+    <div class="cols4">
+      <div>
+        <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b></a>
+        <p class="about">A futures position calculator for Bybit that sizes every trade from your risk, places the order from your own PC and journals the result.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="index.html#calculator">Calculator</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#logic-ai">Logic AI</a></li><li><a href="index.html#get">Pricing</a></li><li><a href="buy.html">Buy with USDT</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul>
+        <li><a href="setup.html">Setup guide</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="terms.html">Terms of sale and use</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="risk.html">Risk disclosure</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Logilator. Made with love, @itsmelogith</span>
+      <span style="display:flex;gap:22px"><a href="https://x.com/itsmelogith" target="_blank" rel="noopener">X</a><a href="https://youtube.com/@itsmelogith" target="_blank" rel="noopener">YouTube</a><a href="https://logicft.in" target="_blank" rel="noopener">logicft.in</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

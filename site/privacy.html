@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy | Logilator</title>
+<meta name="description" content="What this website and the Logilator app do, and do not do, with your information.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Logilator">
+<meta property="og:title" content="Privacy | Logilator">
+<meta property="og:description" content="What this website and the Logilator app do, and do not do, with your information.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" id="glow"></div>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b><span class="ver" data-version>v15.5</span></a>
+    <nav class="main" id="mainNav" aria-label="Main"><a href="index.html#calculator">Calculator</a><a href="index.html#journal">Journal</a><a href="index.html#logic-ai">Logic AI</a><a href="index.html#safeguards">Safeguards</a><a href="setup.html">Setup guide</a><a href="index.html#get">Pricing</a><a href="index.html#faq">FAQ</a></nav>
+    <div class="right">
+      <a class="btn solid" data-buy href="buy.html">Get Logilator</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="pagehead"><div class="wrap"><span class="label">Legal</span><h1>Privacy</h1><p>What this website and the Logilator app do, and do not do, with your information.</p></div></div>
+<div class="wrap doc">
+  <aside class="toc" aria-label="On this page"><a href="#site">This website</a><a href="#app">The Logilator app</a><a href="#purchase">Buying</a><a href="#rights">Your choices</a></aside>
+  <article class="prose">
+
+<h2 id="site">This website</h2>
+<p>This website has no accounts, no cookies and no analytics or advertising trackers. It loads fonts from Google Fonts, so your browser contacts Google when you visit, which means Google can see your IP address. The pages don't collect or store anything else about you.</p>
+<h2 id="app">The Logilator app</h2>
+<p>Logilator runs on your own computer, and we do not receive any data from it. There is no account, no telemetry and no usage tracking. The following stays on your computer:</p>
+<ul>
+<li>Your Bybit API key and secret, in the <code>.env</code> file.</li>
+<li>Your trade journal (<code>journal.json</code>), including notes, tags and ratings.</li>
+<li>A record of order attempts (<code>orders.log</code>, no secrets) and your display settings (stored in your browser).</li>
+</ul>
+<p>The app connects only to services you set up yourself:</p>
+<ul>
+<li><strong>Bybit</strong>, to read your balance and trades and to place the orders you confirm.</li>
+<li><strong>OpenRouter</strong>, only if you add an OpenRouter key and use Logic AI. Your chat messages and any chart screenshots you paste are sent to OpenRouter and to the model provider you choose, under their own privacy policies. Your Bybit keys are never sent to them.</li>
+<li><strong>Google Fonts</strong>, to load the interface font when you open the app in your browser.</li>
+</ul>
+<h2 id="purchase">Buying</h2>
+<p>You pay by sending USDT to the wallet address on the payment page, and you contact us by email or on X. We receive the transaction ID, the amount, your sending wallet address (visible on the public blockchain), and the email address or X account you give us for delivery and support. Blockchain transactions are public and permanent, and we cannot remove them. We use this information only to confirm payment, deliver the software, give support and handle refunds, and we don't sell it. Your email provider and X process your messages under their own policies. This website does not process payments and does not store any of this itself.</p>
+<h2 id="rights">Your choices</h2>
+<p>Because Logilator keeps its data on your computer, you control it: delete <code>journal.json</code>, <code>orders.log</code> or the whole folder at any time. To ask about information you gave us when buying or asking for support, email logithslogic@gmail.com or message @itsmelogith on <a href="https://x.com/itsmelogith" target="_blank" rel="noopener">X</a>.</p>
+<p class="updated">Last updated 9 November 2026.</p>
+
+  </article>
+</div>
+<div style="height:120px"></div>
+</main>
+<footer class="big">
+  <div class="wrap">
+    <div class="cols4">
+      <div>
+        <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b></a>
+        <p class="about">A futures position calculator for Bybit that sizes every trade from your risk, places the order from your own PC and journals the result.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="index.html#calculator">Calculator</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#logic-ai">Logic AI</a></li><li><a href="index.html#get">Pricing</a></li><li><a href="buy.html">Buy with USDT</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul>
+        <li><a href="setup.html">Setup guide</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="terms.html">Terms of sale and use</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="risk.html">Risk disclosure</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Logilator. Made with love, @itsmelogith</span>
+      <span style="display:flex;gap:22px"><a href="https://x.com/itsmelogith" target="_blank" rel="noopener">X</a><a href="https://youtube.com/@itsmelogith" target="_blank" rel="noopener">YouTube</a><a href="https://logicft.in" target="_blank" rel="noopener">logicft.in</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

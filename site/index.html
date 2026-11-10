@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logilator | Futures position calculator for Bybit</title>
+<meta name="description" content="Logilator sizes every Bybit USDT futures trade from your risk, shows the fee-adjusted outcome, places the order from your own PC and journals every trade. Includes Logic AI.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Logilator">
+<meta property="og:title" content="Logilator | Futures position calculator for Bybit">
+<meta property="og:description" content="Logilator sizes every Bybit USDT futures trade from your risk, shows the fee-adjusted outcome, places the order from your own PC and journals every trade. Includes Logic AI.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" id="glow"></div>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b><span class="ver" data-version>v15.5</span></a>
+    <nav class="main" id="mainNav" aria-label="Main"><a href="#calculator">Calculator</a><a href="#journal">Journal</a><a href="#logic-ai">Logic AI</a><a href="#safeguards">Safeguards</a><a href="setup.html">Setup guide</a><a href="#get">Pricing</a><a href="#faq">FAQ</a></nav>
+    <div class="right">
+      <a class="btn solid" data-buy href="buy.html">Get Logilator</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero" id="top">
+  <div class="gridbg" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <span class="tag"><i></i>Bybit USDT perpetuals &middot; ETH &middot; BTC &middot; SOL</span>
+    <h1>Trading is fast.<br><em>Be faster.</em></h1>
+    <p class="lede">Logilator turns your entry, stop loss and risk percentage into an exact position size in seconds, so you can get your limit order in before the price reaches it. It shows what the fees do to the result, places the order from your own computer, and journals every trade when it closes. Your keys never leave your PC.</p>
+    <div class="cta">
+      <a class="btn solid lg" data-buy href="buy.html">Get Logilator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn lg" href="#demo">Watch the 30-second demo</a>
+    </div>
+    <p class="fine">Windows &nbsp;/&nbsp; runs locally &nbsp;/&nbsp; demo and testnet supported</p>
+    <div class="stage">
+      <div class="frame">
+        <div class="top"><i></i><i></i><i></i><span>localhost:3000</span></div>
+        <img src="assets/calc-1x.webp" srcset="assets/calc-1x.webp 1200w, assets/calc-2x.webp 2160w" sizes="(min-width:1100px) 1060px, 100vw" width="1200" height="750" fetchpriority="high" alt="Logilator calculator with a long ETHUSDT trade: 1% risk gives a 2.3454 ETH position, 1 to 2 reward to risk, with net profit and loss after fees">
+      </div>
+      <div class="stage-fade"></div>
+    </div>
+  </div>
+</div>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b>LOCAL</b><span>Runs on your PC, not a server</span></div>
+    <div class="fact"><b>YOUR KEYS</b><span>Stored in a file you control</span></div>
+    <div class="fact"><b>CONFIRMED</b><span>Review window before every order</span></div>
+    <div class="fact"><b>TESTABLE</b><span>Demo, testnet and dry-run modes</span></div>
+  </div>
+</div>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">See it work</span>
+      <h2>From levels to a journaled trade, <em>in half a minute.</em></h2>
+      <p>Enter your risk and levels, review the order, and see how the journal and settings look. Recorded on a Bybit demo account with sample data.</p>
+    </div>
+    <div class="video rv">
+      <video id="demoVid" controls preload="metadata" playsinline muted poster="assets/poster.webp" aria-label="Logilator demo: calculating a trade, reviewing the order, the trade journal and settings">
+        <source src="assets/demo.mp4" type="video/mp4">
+        <source src="assets/demo.webm" type="video/webm">
+        Your browser can't play this video. <a href="assets/demo.mp4">Download it</a>.
+      </video>
+      <p class="vid-err" id="vidErr" hidden>The video couldn't be played in this browser. <a href="assets/demo.mp4" download>Download the demo (MP4)</a> or open it in Chrome, Edge or Firefox.</p>
+      <div class="cap"><span>Demo account &middot; sample data &middot; no real orders</span><span>0:30 &middot; no sound</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="calculator">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Calculator</span>
+      <h2>The maths you do before every trade, <em>done once, correctly.</em></h2>
+      <p>Position size is not a feeling. It is your risk amount divided by the distance to your stop. Logilator does that, then keeps going: leverage, fees, reward-to-risk and what you actually keep.</p>
+    </div>
+    <div class="cols">
+      <div class="ledger rv">
+        <div class="hd"><span>Worked example</span><span>ETHUSDT &middot; Long</span></div>
+        <dl>
+          <dt>Balance</dt><dd>1,000.00 USDT</dd>
+          <dt>Risk</dt><dd>1% = 10.00 USDT</dd>
+          <dt>Entry / Stop / Target</dt><dd>2000 / 1900 / 2200</dd>
+          <dt class="k">Position size</dt><dd class="k">0.1000 ETH</dd>
+          <dt class="k">Notional</dt><dd class="k">200.00 USDT</dd>
+          <dt>Minimum leverage</dt><dd>1x</dd>
+          <dt>Reward : risk</dt><dd>1 : 2.00</dd>
+          <dt>Net profit after fees</dt><dd class="pos">+19.84 USDT</dd>
+          <dt>Net loss after fees</dt><dd class="neg">&minus;10.14 USDT</dd>
+        </dl>
+        <div class="ft">Size = risk &divide; |entry &minus; stop| = 10 &divide; 100 = <code>0.1</code> ETH. Fees: 0.02% maker on entry and take profit, 0.055% taker when the stop is hit. Sample inputs; edit the fee rates in your settings if you have a VIP tier.</div>
+      </div>
+      <div class="list rv">
+        <div class="row"><span class="n">01</span><h3>Risk-based sizing</h3><p>Set balance and risk percentage. Get size in coins and in USDT, matched to your stop loss.</p></div>
+        <div class="row"><span class="n">02</span><h3>Leverage and liquidation</h3><p>The lowest leverage that can afford the position, checked against your liquidation level.</p></div>
+        <div class="row"><span class="n">03</span><h3>Fees included</h3><p>Entry and exit fees on both outcomes, so you see net profit and net loss, not the flattering gross figures.</p></div>
+        <div class="row"><span class="n">04</span><h3>Place, edit, cancel</h3><p>Limit entry with stop loss and take profit attached. Edit or cancel open orders from the same screen.</p></div>
+        <div class="row"><span class="n">05</span><h3>Live positions</h3><p>Open positions with live unrealised profit and loss, and partial or full close at market.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journal">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Trade journal</span>
+      <h2>Every trade recorded, <em>without lifting a finger.</em></h2>
+      <p>When a trade closes, it appears in your journal with the plan you reviewed next to what actually happened. Then you add what you learned. Win rate, breakeven rate, loss rate, average leverage, average risk and average reward-to-risk are always one glance away.</p>
+    </div>
+    <div class="shot wide-shot rv">
+      <div class="frame" style="border:0;border-radius:0;box-shadow:none"><div class="top"><i></i><i></i><i></i><span>Journal &middot; sample data</span></div>
+      <img src="assets/journal-1x.webp" srcset="assets/journal-1x.webp 1200w, assets/journal-2x.webp 2160w" sizes="(min-width:1240px) 1180px, 100vw" width="1200" height="750" alt="Logilator trade journal with 15 sample trades: 53.3% win rate, 13.3% breakeven, 33.3% loss rate, average leverage 5.1x, average risk 0.97%, average reward to risk 1 to 2.07, with plan versus result for the selected trade"></div>
+    </div>
+    <div class="feat rv">
+      <div class="f"><b>Plan vs result</b><span>Planned entry, stop, target and risk beside the actual fill, fees and R multiple, so you see whether you followed your plan.</span></div>
+      <div class="f"><b>The numbers that matter</b><span>Win, breakeven and loss rate. Average leverage, risk per trade, reward-to-risk and gain per trade. Total fees paid. Profit factor.</span></div>
+      <div class="f"><b>Notes, tags and ratings</b><span>Record the setup, rate your execution, tag trades like &ldquo;A+&rdquo; or &ldquo;early entry&rdquo; and search them later.</span></div>
+      <div class="f"><b>Yours to correct</b><span>Breakeven is automatic (under 0.1% of balance, adjustable). If a trade is marked wrongly, change it with one click.</span></div>
+      <div class="f"><b>Never expires</b><span>Trades are kept as long as you keep them. Recent trades closed on Bybit are imported too, and you can export everything to CSV.</span></div>
+      <div class="f"><b>Private by design</b><span>The journal is one file on your computer. It is never uploaded anywhere. Delete a single trade, several, or all of them.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="logic-ai">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Logic AI</span>
+      <h2>Describe the trade. <em>Or show it.</em></h2>
+      <p>A chat page built into Logilator, powered by OpenRouter. Type what you want, or paste a screenshot of your long/short tool and it reads the levels off the price axis.</p>
+    </div>
+    <div class="cols" style="align-items:center">
+      <div class="rv">
+        <ul class="ticks" style="margin-top:0">
+          <li>Reads entry, stop loss and take profit from a chart screenshot, then waits for your click before applying</li>
+          <li>Switches long and short and fills your levels from plain language</li>
+          <li>Opens the order review for you. You press the final confirm</li>
+          <li>Free models by default, any OpenRouter model if you choose</li>
+          <li>Shows which model answered, how long it took and the tokens used</li>
+        </ul>
+        <p class="note">Accuracy depends on the model. Free vision models read price labels less reliably than paid ones, so compare the result with your chart before applying.</p>
+      </div>
+      <div class="frame aiframe rv" style="border-bottom:1px solid var(--line);border-radius:12px">
+        <div class="top"><i></i><i></i><i></i><span>Logic AI</span></div>
+        <img src="assets/ai-1x.webp" srcset="assets/ai-1x.webp 1200w, assets/ai-2x.webp 2160w" sizes="(min-width:940px) 560px, 100vw" width="1200" height="750" alt="Logic AI reading entry, stop loss and take profit from a pasted chart screenshot">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="custom">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="shot tall rv"><img src="assets/settings-panel.webp" width="660" height="1080" alt="Logilator settings panel with accent colour, profit and loss colours, interface size, breakeven threshold and keyboard shortcut options"></div>
+      <div class="rv">
+        <span class="label" style="display:block;margin-bottom:22px">Made to fit you</span>
+        <h2>Your tool, <em>your colours.</em></h2>
+        <p style="margin-top:22px;color:var(--text2);font-size:16.5px;line-height:1.75">Open Settings from the gear and make it yours. Preferences stay on your computer and never change how orders are placed or checked.</p>
+        <ul class="ticks">
+          <li>Accent colour presets, or pick any colour you like</li>
+          <li>Profit and loss colours, including a colour-blind friendly blue and orange</li>
+          <li>Compact, default or large interface</li>
+          <li>Cursor glow, animations and the bouncing dollar on or off</li>
+          <li>Breakeven threshold for your journal</li>
+          <li>Keyboard shortcuts: Tab cycles Calculator, Logic AI and Journal; &ldquo;/&rdquo; jumps to the AI chat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Setup</span>
+      <h2>From download to first order <em>in minutes.</em></h2>
+    </div>
+    <div class="steps rv">
+      <div class="step"><span class="n">STEP 01</span><h3>Unzip and start</h3><p>Extract the folder anywhere on a Windows PC with Node.js installed, then double-click the start file.</p></div>
+      <div class="step"><span class="n">STEP 02</span><h3>Add your own keys</h3><p>Paste your Bybit API key into the settings file. Add an OpenRouter key for Logic AI. Begin on demo or testnet.</p></div>
+      <div class="step"><span class="n">STEP 03</span><h3>Calculate and confirm</h3><p>Enter your levels, read the order review, confirm. The order goes from your PC straight to Bybit.</p></div>
+    </div>
+    <p style="margin-top:34px"><a class="btn" href="setup.html">Read the full setup guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+<section id="safeguards">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Safeguards</span>
+      <h2>Software that can place orders <em>should be careful.</em></h2>
+    </div>
+    <div class="panel rv">
+      <div class="g">
+        <div>
+          <div class="it"><b>Keys stay local</b><span>Your Bybit keys live in a file on your PC. They are never sent to a website or shown to the AI.</span></div>
+          <div class="it"><b>Nothing sends itself</b><span>Every order opens a review window first. Nothing reaches Bybit until you confirm.</span></div>
+          <div class="it"><b>Local only</b><span>The server accepts requests from your own computer and rejects everything else.</span></div>
+        </div>
+        <div>
+          <div class="it"><b>Checks before orders</b><span>Balance, stop-loss side, isolated margin and an optional daily loss limit and maximum risk per trade that you set.</span></div>
+          <div class="it"><b>Live mode is loud</b><span>Live trading carries a clear warning, and dry-run mode simulates orders without sending them.</span></div>
+          <div class="it"><b>AI has limits</b><span>Logic AI cannot place an order on its own, close positions or see your keys.</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:18px">We recommend a Bybit API key with trading permission only, never withdrawal, restricted to your IP address where possible. The <a href="setup.html#api-key" style="border-bottom:1px solid var(--line-hover)">setup guide</a> shows how.</p>
+  </div>
+</section>
+
+<section id="compat">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Compatibility</span>
+      <h2>What it runs on, <em>and what it doesn't.</em></h2>
+      <p>Clear limits up front, so you know before you buy.</p>
+    </div>
+    <div class="tbl rv">
+      <table>
+        <tr><th>Item</th><th>Support</th></tr>
+        <tr><td>Exchange</td><td><span class="yes">Bybit</span> (live, Demo Trading and testnet). Other exchanges are not supported.</td></tr>
+        <tr><td>Markets</td><td><span class="yes">USDT perpetuals:</span> ETHUSDT, BTCUSDT and SOLUSDT.</td></tr>
+        <tr><td>Computer</td><td><span class="yes">Windows 10 and 11</span>, with Node.js installed. Built and tested on Windows 11. macOS and Linux are not tested or supported.</td></tr>
+        <tr><td>Account setup</td><td>Isolated margin and one-way position mode. The app checks both and refuses to trade otherwise.</td></tr>
+        <tr><td>Logic AI</td><td>Optional. Needs your own OpenRouter key. Free models have daily limits.</td></tr>
+        <tr><td>Internet</td><td>Needed to reach Bybit (and OpenRouter if you use the AI). The calculator itself runs on your PC.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="get">
+  <div class="wrap get">
+    <div class="rv">
+      <span class="label" style="display:block;margin-bottom:22px">Get Logilator</span>
+      <h2>Buy once. <em>Run it yourself.</em></h2>
+      <p style="margin-top:22px;color:var(--text2);font-size:16.5px;line-height:1.75;max-width:460px">One payment, no subscription. It runs on your computer and uses your own accounts.</p>
+    </div>
+    <div class="offer rv">
+      <div class="nm">Logilator <span data-version>v15.5</span></div>
+      <div class="pr" id="priceAmt">Contact for price</div>
+      <div class="pn" id="priceNote"></div>
+      <ul>
+        <li>Calculator for ETH, BTC and SOL USDT perpetuals</li>
+        <li>Order placement, editing, cancelling and live positions</li>
+        <li>Automatic trade journal with statistics</li>
+        <li>Logic AI with chart screenshot reading</li>
+        <li>Customisable colours and settings</li>
+        <li>Setup guide and help from the developer</li>
+      </ul>
+      <a class="btn solid lg" id="buyBtn" data-buy href="buy.html">Buy with USDT</a>
+      <p class="guar"><b style="color:var(--text);font-weight:500">7-day refund.</b> If you can't get Logilator running on your setup, you'll get your money back. See the <a href="terms.html#refunds" style="border-bottom:1px solid var(--line-hover)">terms</a>.</p>
+      <p class="paynote">You pay in USDT on the Tron network (TRC20). The download is sent once your payment is confirmed. <a href="buy.html">How paying works</a></p>
+      <p class="req">Requires Windows, Node.js, and your own Bybit account and API key. OpenRouter key optional.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head rv"><span class="label">Questions</span><h2>Common questions.</h2></div>
+    <div class="faq rv">
+      <details><summary>How do I pay, and when do I get it?</summary><p>Payment is in USDT on the Tron (TRC20) network. The <a href="buy.html" style="border-bottom:1px solid var(--line-hover)">payment page</a> shows the amount and address. Send the exact amount, then message the transaction ID by email or on X. After the payment is checked on the blockchain, the download link is sent to you, usually within 24 hours.</p></details>
+      <details><summary>Will this make me profitable?</summary><p>No tool can promise that. Logilator helps you size positions and manage risk consistently, and the journal helps you see what is and isn't working. Results depend on your strategy, discipline and the market.</p></details>
+      <details><summary>Is my Bybit API key safe?</summary><p>It is stored in a file on your own computer and used only by the app running there. It is never uploaded or shown to the AI. Create a key with trading permission only, never withdrawals, and restrict it to your IP address where you can.</p></details>
+      <details><summary>Do I need to know how to code?</summary><p>No. Install Node.js once, unzip the folder, paste your keys into the settings file and double-click the start file. The <a href="setup.html" style="border-bottom:1px solid var(--line-hover)">setup guide</a> walks through every step.</p></details>
+      <details><summary>Can I try it without risking real money?</summary><p>Yes. Logilator works with Bybit Demo Trading and the Bybit testnet, and it has a dry-run mode that checks everything and shows the order without sending it. Start there.</p></details>
+      <details><summary>Where is my trade journal stored?</summary><p>In a single file on your own computer, next to the app. Nothing is uploaded. Trades are kept until you delete them, and you can export them to CSV at any time.</p></details>
+      <details><summary>What does Logic AI cost?</summary><p>You bring your own OpenRouter key. Free models cost nothing but have daily limits. Paid models and the Auto router bill your own OpenRouter credits, and the app asks before using them.</p></details>
+      <details><summary>How accurate is the screenshot reading?</summary><p>It depends on the model. Stronger models read price labels more reliably than free ones. The levels are shown first and only applied when you click, so you can check them against your chart.</p></details>
+      <details><summary>Which markets and computers are supported?</summary><p>Bybit USDT perpetuals ETHUSDT, BTCUSDT and SOLUSDT, on live accounts as well as Bybit demo trading and testnet. It is built and tested on Windows 10 and 11. Other operating systems are not supported.</p></details>
+      <details><summary>What if Bybit changes something?</summary><p>Bybit can change its systems, and I can't control that. If something stops working because of a change on Bybit's side, tell me and I'll look into it. See the <a href="terms.html" style="border-bottom:1px solid var(--line-hover)">terms</a> for what is and isn't covered.</p></details>
+      <details><summary>Can I use it on more than one computer, or share it?</summary><p>The licence is for your own personal use. Please don't share, resell or redistribute it. Details are in the <a href="terms.html#licence" style="border-bottom:1px solid var(--line-hover)">terms</a>.</p></details>
+      <details><summary>How do I get help?</summary><p>Message @itsmelogith on X, or visit the <a href="support.html" style="border-bottom:1px solid var(--line-hover)">support page</a>, and you will get help with setup.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="final">
+  <div class="wrap">
+    <h2>Calculate it. <em>Today.</em></h2>
+    <p>Start on a demo account, check every number, and move to live only when you are ready.</p>
+    <div class="cta"><a class="btn solid lg" data-buy href="buy.html">Get Logilator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn lg" href="setup.html">Read the setup guide</a></div>
+  </div>
+</div>
+
+</main>
+<div class="risk">
+  <div class="wrap">
+    <p><b>Risk warning.</b> Trading crypto futures carries a high level of risk and can result in the loss of your entire deposit. Leverage magnifies both gains and losses. Only trade with money you can afford to lose.</p>
+    <p><b>Not financial advice.</b> Logilator is a calculation and order-entry tool. Nothing in the software, the AI assistant or on this website is financial, investment or trading advice. AI output can be wrong; verify every number before you trade. You are solely responsible for your trading decisions and for orders placed with your API keys.</p>
+    <p><b>Speed is not a guarantee.</b> Logilator helps you calculate and send an order quickly, but it cannot make a market wait for you. A limit order may not fill, may fill only in part, or may fill at a different time than you expect, and the price can reach your level before your order is placed. Fast trading increases risk. Never rush a trade, and always check the numbers in the review window.</p>
+    <p>Logilator is an independent product, not affiliated with, endorsed by or sponsored by Bybit or OpenRouter. All trademarks belong to their owners. Screenshots and the demo video use sample data on a demo account.</p>
+  </div>
+</div>
+<footer class="big">
+  <div class="wrap">
+    <div class="cols4">
+      <div>
+        <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b></a>
+        <p class="about">A futures position calculator for Bybit that sizes every trade from your risk, places the order from your own PC and journals the result.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="index.html#calculator">Calculator</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#logic-ai">Logic AI</a></li><li><a href="index.html#get">Pricing</a></li><li><a href="buy.html">Buy with USDT</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul>
+        <li><a href="setup.html">Setup guide</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="terms.html">Terms of sale and use</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="risk.html">Risk disclosure</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Logilator. Made with love, @itsmelogith</span>
+      <span style="display:flex;gap:22px"><a href="https://x.com/itsmelogith" target="_blank" rel="noopener">X</a><a href="https://youtube.com/@itsmelogith" target="_blank" rel="noopener">YouTube</a><a href="https://logicft.in" target="_blank" rel="noopener">logicft.in</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

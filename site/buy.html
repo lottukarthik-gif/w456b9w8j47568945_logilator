@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buy Logilator | Logilator</title>
+<meta name="description" content="Pay for Logilator in USDT (TRC20) and receive your download after the transaction is confirmed.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Logilator">
+<meta property="og:title" content="Buy Logilator | Logilator">
+<meta property="og:description" content="Pay for Logilator in USDT (TRC20) and receive your download after the transaction is confirmed.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" id="glow"></div>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b><span class="ver" data-version>v15.5</span></a>
+    <nav class="main" id="mainNav" aria-label="Main"><a href="index.html#calculator">Calculator</a><a href="index.html#journal">Journal</a><a href="index.html#logic-ai">Logic AI</a><a href="index.html#safeguards">Safeguards</a><a href="setup.html">Setup guide</a><a href="index.html#get">Pricing</a><a href="index.html#faq">FAQ</a></nav>
+    <div class="right">
+      <a class="btn solid" data-buy href="buy.html">Get Logilator</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="pagehead"><div class="wrap"><span class="label">Checkout</span><h1>Buy Logilator</h1><p>Pay in USDT on the Tron network, tell us the transaction ID, and we'll send you the download.</p></div></div>
+<div class="wrap">
+  <div class="buy">
+    <div class="buy-main">
+      <ol class="pay-steps">
+        <li><span class="n">1</span><div><h3>Send the payment</h3><p>Send the full amount in <b>USDT on TRC20 (Tron)</b> to the address in the payment box. The network fee is paid by you on top, so the whole amount arrives.</p></div></li>
+        <li><span class="n">2</span><div><h3>Tell us you've paid</h3><p>Email or message us your <b>transaction ID (TXID)</b>, your reference and the email address to send the file to. The buttons in the payment box do this for you.</p></div></li>
+        <li><span class="n">3</span><div><h3>Get your download</h3><p>Once the payment shows as confirmed on the blockchain, we send your download link <span data-deliver>within 24 hours</span>. The <a href="setup.html">setup guide</a> takes it from there.</p></div></li>
+      </ol>
+      <div class="callout warn"><b>USDT on TRC20 only.</b> Anything sent on another network (ERC20, BEP20 and so on) or in another coin is lost for good, and we can't get it back. Crypto payments can't be reversed.</div>
+      <div class="callout"><b>Check the address.</b> This page is the only place we publish it. We will never message you first or ask you to pay somewhere else. Before you send, compare the first and last six characters of the address you pasted with the ones shown here. Never share a seed phrase or API secret with anyone, us included.</div>
+      <h2 class="buy-h">What's included</h2>
+      <ul class="plain">
+        <li><span>Logilator <span data-version>v15.5</span> for Windows, ready to run, with a setup guide</span></li>
+        <li><span>The position calculator, order placement, trade journal and Logic AI</span></li>
+        <li><span>A personal single-user licence (see the <a href="terms.html#licence">terms</a>)</span></li>
+        <li><span>Direct help from the developer, and a <a href="terms.html#refunds">7-day refund</a> if you can't get it running</span></li>
+      </ul>
+    </div>
+    <aside class="buy-card" id="payCard">
+      <div class="nm">Logilator <span data-version>v15.5</span> &middot; one-time</div>
+      <div id="payReady" hidden>
+        <div class="amt"><span id="payAmount"></span> <small>USDT</small></div>
+        <dl class="kv">
+          <div><dt>Network</dt><dd id="payNet">TRC20 (Tron)</dd></div>
+          <div><dt>Coin</dt><dd>USDT only</dd></div>
+          <div><dt>Reference</dt><dd class="mono" id="payRef"></dd></div>
+        </dl>
+        <div class="addr-label">Send to this address</div>
+        <div class="addr" id="payAddr"></div>
+        <button class="btn solid" id="copyBtn" type="button">Copy address</button>
+        <div class="pay-actions">
+          <a class="btn" id="mailBtn" href="mailto:logithslogic@gmail.com">Email proof</a>
+          <a class="btn" href="https://x.com/itsmelogith" target="_blank" rel="noopener">Message on X</a>
+        </div>
+        <p class="fine2">Include your reference, the transaction ID and your email address. Contact: logithslogic@gmail.com or @itsmelogith on X.</p>
+      </div>
+      <div id="payWait">
+        <div class="amt soon">Payments opening soon</div>
+        <p class="fine2" style="margin-top:14px">Payment details aren't live yet. To buy Logilator, email <a href="mailto:logithslogic@gmail.com">logithslogic@gmail.com</a> or message <a href="https://x.com/itsmelogith" target="_blank" rel="noopener">@itsmelogith</a> on X and you'll get the current price and address.</p>
+        <a class="btn solid" href="mailto:logithslogic@gmail.com" style="width:100%;margin-top:18px">Email to buy</a>
+      </div>
+    </aside>
+  </div>
+</div>
+<div style="height:120px"></div>
+</main>
+<footer class="big">
+  <div class="wrap">
+    <div class="cols4">
+      <div>
+        <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b></a>
+        <p class="about">A futures position calculator for Bybit that sizes every trade from your risk, places the order from your own PC and journals the result.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="index.html#calculator">Calculator</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#logic-ai">Logic AI</a></li><li><a href="index.html#get">Pricing</a></li><li><a href="buy.html">Buy with USDT</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul>
+        <li><a href="setup.html">Setup guide</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="terms.html">Terms of sale and use</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="risk.html">Risk disclosure</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Logilator. Made with love, @itsmelogith</span>
+      <span style="display:flex;gap:22px"><a href="https://x.com/itsmelogith" target="_blank" rel="noopener">X</a><a href="https://youtube.com/@itsmelogith" target="_blank" rel="noopener">YouTube</a><a href="https://logicft.in" target="_blank" rel="noopener">logicft.in</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

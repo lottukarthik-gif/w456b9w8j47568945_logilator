@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup guide | Logilator</title>
+<meta name="description" content="Install Logilator, connect it to Bybit, and place your first test order. About ten minutes on Windows.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Logilator">
+<meta property="og:title" content="Setup guide | Logilator">
+<meta property="og:description" content="Install Logilator, connect it to Bybit, and place your first test order. About ten minutes on Windows.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" id="glow"></div>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b><span class="ver" data-version>v15.5</span></a>
+    <nav class="main" id="mainNav" aria-label="Main"><a href="index.html#calculator">Calculator</a><a href="index.html#journal">Journal</a><a href="index.html#logic-ai">Logic AI</a><a href="index.html#safeguards">Safeguards</a><a href="setup.html">Setup guide</a><a href="index.html#get">Pricing</a><a href="index.html#faq">FAQ</a></nav>
+    <div class="right">
+      <a class="btn solid" data-buy href="buy.html">Get Logilator</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="pagehead"><div class="wrap"><span class="label">Resources</span><h1>Setup guide</h1><p>Install Logilator, connect it to Bybit, and place your first test order. About ten minutes on Windows.</p></div></div>
+<div class="wrap doc">
+  <aside class="toc" aria-label="On this page"><a href="#before">Before you start</a><a href="#node">1. Install Node.js</a><a href="#download">2. Download and unzip</a><a href="#api-key">3. Create a Bybit API key</a><a href="#env">4. Add your keys</a><a href="#start">5. Start Logilator</a><a href="#test">6. Test safely</a><a href="#ai">Logic AI (optional)</a><a href="#shortcut">Taskbar shortcut</a><a href="#fix">Troubleshooting</a></aside>
+  <article class="prose">
+
+<h2 id="before">Before you start</h2>
+<p>You need a Windows 10 or 11 PC, a Bybit account, and about ten minutes. Logilator runs entirely on your computer and talks only to Bybit (and OpenRouter if you use Logic AI).</p>
+<div class="callout"><b>Start on demo.</b> Use Bybit Demo Trading or the Bybit testnet first. Both use fake money. Move to a live account only after you have checked that every number and every order looks right.</div>
+
+<h2 id="node">1. Install Node.js</h2>
+<p>Logilator needs Node.js, a free program that runs it. Download the <strong>LTS</strong> version from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> and install it with the default options. To check it worked, open the Start menu, type <code>cmd</code>, press Enter and run:</p>
+<pre>node --version</pre>
+<p>If it prints a version number, you're set.</p>
+
+<h2 id="download">2. Download and unzip</h2>
+<p>Unzip the Logilator folder somewhere you'll find it again, for example <code>Documents</code>. Don't run it from inside the zip file. You should see <code>start.bat</code>, <code>server.js</code>, a <code>public</code> folder and a file called <code>.env.example</code>.</p>
+
+<h2 id="api-key">3. Create a Bybit API key</h2>
+<p>Logilator needs an API key so it can read your balance and place orders. <strong>Use trading permission only. Never enable withdrawals or transfers.</strong></p>
+<h3>Option A: Demo Trading (recommended to start)</h3>
+<ol>
+<li>Log in at bybit.com and switch to <strong>Demo Trading</strong> from your profile menu.</li>
+<li>In Demo Trading mode, open your avatar menu and choose <strong>API</strong>, then create a new key.</li>
+<li>Choose a system-generated key with <strong>Read-Write</strong> permission, and tick only the order and position permissions for USDT derivatives (Orders, Positions).</li>
+<li>Copy the <strong>API key</strong> and <strong>API secret</strong>. The secret is shown only once.</li>
+</ol>
+<h3>Option B: Testnet</h3>
+<ol>
+<li>Create a separate account at testnet.bybit.com and request test funds from the Assets page.</li>
+<li>Open <strong>Profile, API</strong> and create a key with the same permissions as above.</li>
+</ol>
+<h3>Option C: Live account</h3>
+<p>Create the key in your normal account with the same permissions. Restrict it to your IP address if Bybit offers that. Only do this after you have tested on demo.</p>
+<div class="callout warn"><b>Never share your API secret</b> with anyone, including anyone claiming to be Logilator support. We will never ask for it. A demo key and a live key are different keys; the key must match the environment you set in the next step. Bybit's menu names change from time to time, but the rule stays the same: trading permissions only, never withdrawals.</div>
+<p>On the Bybit trading page, set the account to <strong>Isolated Margin</strong> and <strong>One-Way</strong> position mode. Logilator checks both and refuses to trade otherwise.</p>
+
+<h2 id="env">4. Add your keys</h2>
+<ol>
+<li>In the Logilator folder, copy <code>.env.example</code> and rename the copy to <code>.env</code>. If Windows hides file extensions, make sure it is <code>.env</code> and not <code>.env.txt</code>.</li>
+<li>Open <code>.env</code> in Notepad and fill in the top section:</li>
+</ol>
+<pre>BYBIT_ENV=testnet        # or demo, or mainnet. Must match where the key was created
+BYBIT_API_KEY=your_key_here
+BYBIT_API_SECRET=your_secret_here</pre>
+<p>For Demo Trading you can also write <code>BYBIT_IS_DEMO=true</code>. Save the file. Never share it or post it online.</p>
+<h3>Optional safety limits</h3>
+<p>The same file lets you set a maximum risk per trade (<code>MAX_RISK_USDT</code>), a daily loss limit (<code>MAX_DAILY_LOSS_USDT</code>), your own fee rates if you have a VIP tier, and <code>DRY_RUN=true</code> to check everything without sending any order.</p>
+
+<h2 id="start">5. Start Logilator</h2>
+<p>Double-click <code>start.bat</code>. A black window opens and prints the address, normally <code>http://localhost:3000</code>. Open that address in your browser. Keep the black window open while you use Logilator; closing it stops the app.</p>
+<p>The calculator should show your balance within a few seconds. The badge next to the order button shows the environment you're connected to: TESTNET, DEMO or LIVE.</p>
+
+<h2 id="test">6. Test safely</h2>
+<ol>
+<li>With <code>DRY_RUN=true</code>, enter a trade and press <strong>Place Order</strong>. You'll see the order review and what <em>would</em> be sent, but nothing is sent.</li>
+<li>Turn dry run off, still on demo or testnet, and place a small order. Watch it appear in Bybit.</li>
+<li>When the trade closes, open the <strong>Journal</strong> tab to see it recorded.</li>
+<li>Only then consider a live account, and start small.</li>
+</ol>
+
+<h2 id="ai">Logic AI (optional)</h2>
+<p>Logic AI needs your own free key from <a href="https://openrouter.ai" target="_blank" rel="noopener">openrouter.ai</a> (Keys). Paste it into <code>.env</code> as <code>OPENROUTER_API_KEY=</code> and restart Logilator. Free models cost nothing but have daily limits. Paid models bill your own OpenRouter credits and the app asks before using them. Logic AI never sees your Bybit keys and cannot place an order without your confirmation.</p>
+
+<h2 id="shortcut">Taskbar shortcut</h2>
+<p>Double-click <code>Create Shortcut.bat</code>. It creates a Logilator shortcut in the folder. Right-click the shortcut, choose <strong>Show more options</strong>, then <strong>Pin to taskbar</strong>.</p>
+
+<h2 id="fix">Troubleshooting</h2>
+<h3>start.bat closes immediately</h3>
+<p>Node.js is probably not installed or not on your PATH. Reinstall it, restart the PC and try again.</p>
+<h3>&ldquo;Keys not configured&rdquo; or balance won't load</h3>
+<p>Check that the file is called <code>.env</code>, that the key and secret have no spaces or quotes around them, that <code>BYBIT_ENV</code> matches where the key was made, and restart Logilator after any change.</p>
+<h3>Bybit says the API key is invalid or the permissions are wrong</h3>
+<p>A demo key only works with <code>demo</code>, a testnet key only with <code>testnet</code>, and a live key only with <code>mainnet</code>. Make sure Orders and Positions permissions are enabled, and that your IP address matches if you restricted the key.</p>
+<h3>The order is blocked</h3>
+<p>Read the message in the order window. Common reasons: the account isn't in isolated margin or one-way mode, you already have a position or open order on that symbol, or one of your own safety limits was reached.</p>
+<h3>The page is blank or the port is busy</h3>
+<p>Another program may be using port 3000. Change <code>PORT</code> in <code>.env</code> to another number such as 3001 and open that address instead.</p>
+<div class="callout">Still stuck? See the <a href="support.html">support page</a>. Include what you did and the message you see. <strong>Never include your API secret.</strong></div>
+<p class="updated">Last updated 9 November 2026. Bybit changes its menus from time to time, so button names may differ slightly.</p>
+
+  </article>
+</div>
+<div style="height:120px"></div>
+</main>
+<footer class="big">
+  <div class="wrap">
+    <div class="cols4">
+      <div>
+        <a class="brand" href="index.html" aria-label="Logilator home"><img src="assets/logo.png" width="30" height="30" alt=""><b>Logilator</b></a>
+        <p class="about">A futures position calculator for Bybit that sizes every trade from your risk, places the order from your own PC and journals the result.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="index.html#calculator">Calculator</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#logic-ai">Logic AI</a></li><li><a href="index.html#get">Pricing</a></li><li><a href="buy.html">Buy with USDT</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul>
+        <li><a href="setup.html">Setup guide</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="terms.html">Terms of sale and use</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="risk.html">Risk disclosure</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Logilator. Made with love, @itsmelogith</span>
+      <span style="display:flex;gap:22px"><a href="https://x.com/itsmelogith" target="_blank" rel="noopener">X</a><a href="https://youtube.com/@itsmelogith" target="_blank" rel="noopener">YouTube</a><a href="https://logicft.in" target="_blank" rel="noopener">logicft.in</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
